@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 /**
  * Edit by Tikhonov Sergey
+ * Класс для работы с таблицей Product
  */
 public class ProductTableOps {
     private Connection connection;

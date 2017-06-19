@@ -1,14 +1,20 @@
 package ru.tikhonov.term2.main;
 
 
-import ru.tikhonov.term2.UI.UI;
+import ru.tikhonov.term2.ui.UI;
 import ru.tikhonov.term2.db.DBHelper;
 import ru.tikhonov.term2.db.ProductTableOps;
+
 import java.sql.Connection;
 
 /**
  * Edit by Tikhonov Sergey
- * Основной класс
+ * Основной класс.
+ * Для работы с консолью используются комманды:
+ * /cost [product title] - выводит стоимость товара
+ * /changecost [product title] [new product cost] - меняет стоимость товара в таблице с заданным именем
+ * /costbyrange [begin cost] [end cost] - выводит в консоль список товаров в указанном ценовом диапазоне
+ * /exit - завершает работу программы
  */
 public class Main {
     public static void main(String[] args) {
