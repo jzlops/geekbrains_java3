@@ -1,10 +1,12 @@
 package ru.tikhonov.term3.filesmgmt;
 
+
 import java.io.*;
 import java.util.*;
 
 /**
  * Edit by Tikhonov Sergey
+ * Класс для работы с файлами
  */
 public class FileOps {
     public static void readAndPrintFile() {
@@ -52,11 +54,30 @@ public class FileOps {
             byte[] buffer = new byte[10];
             while (bis.read(buffer) != -1) {
                 bos.write(buffer);
-                System.out.printf("%s%n", Arrays.toString(buffer));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    public static ArrayList<String> prepareBookPages() {
+        int pageSize = 1817;
+        File bigFile = new File(FilesGenerator.PREFIX + "big.txt");
+        ArrayList<String> book = new ArrayList<>(1000);
+        try (BufferedReader br = new BufferedReader(new FileReader(bigFile))) {
+            char[] page = new char[pageSize];
+            int readCount;
+            int temp = 0;
+            while ((readCount = br.read(page)) != -1) {
+                temp = temp + readCount;
+                if ((temp == pageSize) || (temp == -1)) {
+                    book.add(new String(page));
+                    temp = 0;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return book;
     }
 }
