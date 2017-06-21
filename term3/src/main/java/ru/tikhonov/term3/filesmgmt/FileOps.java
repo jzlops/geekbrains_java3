@@ -11,11 +11,11 @@ import java.util.*;
 public class FileOps {
     public static void readAndPrintFile() {
         FileInputStream fis = null;
+        File file = new File(FilesGenerator.PREFIX + "file1.txt");
         try {
-            File file = new File(FilesGenerator.PREFIX + "file1.txt");
             fis = new FileInputStream(file);
-            long fileSize = file.length();
-            byte[] fileAsArray = new byte[(int) fileSize];
+            int fileSize = (int) file.length();
+            byte[] fileAsArray = new byte[fileSize];
             fis.read(fileAsArray);
             System.out.printf("%s%n", Arrays.toString(fileAsArray));
             fis.close();
