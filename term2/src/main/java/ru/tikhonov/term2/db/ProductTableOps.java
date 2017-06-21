@@ -91,7 +91,7 @@ public class ProductTableOps {
         return result;
     }
 
-   public String printProductByCostRange(float beginCost, float endCost) {
+    public String printProductByCostRange(float beginCost, float endCost) {
         StringBuilder result = new StringBuilder();
         try (PreparedStatement ps = this.connection.prepareStatement("SELECT ProdID, Title, Cost FROM product where Cost > ? AND Cost < ?")) {
             ps.setFloat(1, beginCost);
