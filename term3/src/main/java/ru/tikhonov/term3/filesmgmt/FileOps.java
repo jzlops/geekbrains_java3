@@ -66,14 +66,8 @@ public class FileOps {
         ArrayList<String> book = new ArrayList<>(1000);
         try (BufferedReader br = new BufferedReader(new FileReader(bigFile))) {
             char[] page = new char[pageSize];
-            int readCount;
-            int temp = 0;
-            while ((readCount = br.read(page)) != -1) {
-                temp = temp + readCount;
-                if ((temp == pageSize) || (temp == -1)) {
-                    book.add(new String(page));
-                    temp = 0;
-                }
+            while (br.read(page) != -1) {
+                book.add(new String(page));
             }
         } catch (IOException e) {
             e.printStackTrace();
