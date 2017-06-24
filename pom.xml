@@ -13,6 +13,7 @@
         <module>term1</module>
         <module>term2</module>
         <module>term3</module>
+        <module>term4</module>
     </modules>
 
     <properties>
