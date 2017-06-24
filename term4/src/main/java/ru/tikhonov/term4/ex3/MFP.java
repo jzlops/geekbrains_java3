@@ -6,14 +6,19 @@ package ru.tikhonov.term4.ex3;
 class MFP {
     private volatile int printCount = 0;
     private volatile int scanCount = 0;
+    private final Object scanMon = new Object();
+    private final Object printMon = new Object();
 
-    synchronized void print() {
-        this.printCount++;
-        System.out.printf("%s %d %n", "Printing document", this.printCount);
+    void print() {
+        synchronized (this.printMon) {
+            this.printCount++;
+            System.out.printf("%s %d %n", "Printed document count", this.printCount);
+        }
     }
 
-    synchronized void scan() {
+    void scan() {
+        synchronized (this.scanMon){
         this.scanCount++;
-        System.out.printf("%s %d %n", "Scanning document", this.scanCount);
-    }
+        System.out.printf("%s %d %n", "Scanning document count", this.scanCount);
+    }}
 }

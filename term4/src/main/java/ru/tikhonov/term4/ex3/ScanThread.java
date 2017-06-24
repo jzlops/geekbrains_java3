@@ -3,7 +3,7 @@ package ru.tikhonov.term4.ex3;
 /**
  * Edit by Tikhonov Sergey
  */
-public class ScanThread extends Thread {
+public class ScanThread implements Runnable {
    private MFP mfp;
 
     ScanThread(MFP mfp) {
@@ -12,6 +12,12 @@ public class ScanThread extends Thread {
 
     @Override
     public void run() {
-        this.mfp.scan();
+        try {
+            Thread.sleep(50);
+            this.mfp.scan();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 }

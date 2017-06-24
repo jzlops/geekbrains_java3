@@ -3,7 +3,7 @@ package ru.tikhonov.term4.ex3;
 /**
  * Edit by Tikhonov Sergey
  */
-public class PrintThread extends Thread {
+class PrintThread implements Runnable {
     private MFP mfp;
 
     PrintThread(MFP mfp) {
@@ -12,6 +12,11 @@ public class PrintThread extends Thread {
 
     @Override
     public void run() {
-        this.mfp.print();
+        try {
+            Thread.sleep(40);
+            this.mfp.print();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
