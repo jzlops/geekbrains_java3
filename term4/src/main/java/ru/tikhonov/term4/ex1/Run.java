@@ -1,17 +1,18 @@
 package ru.tikhonov.term4.ex1;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * Edit by Tikhonov Sergey
  */
 public class Run {
     public static void main(String[] args) {
         Printer printer = new Printer();
-        Thread ta = new Thread(new ThreadA(printer));
-        Thread tb = new Thread(new ThreadB(printer));
-        Thread tc = new Thread(new ThreadC(printer));
-        ta.start();
-        tb.start();
-        tc.start();
-
+        ExecutorService ex = Executors.newCachedThreadPool();
+        ex.submit(new ThreadA(printer));
+        ex.submit(new ThreadB(printer));
+        ex.submit(new ThreadC(printer));
+        ex.shutdown();
     }
 }
