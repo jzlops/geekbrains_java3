@@ -6,7 +6,7 @@ import java.util.concurrent.Semaphore;
 public class Tunnel extends Stage {
     private Semaphore semaphore;
 
-    Tunnel(int length, int carLimit) {
+    Tunnel(int length) {
         this.length = length;
         this.description = "Тоннель " + length + " метров";
         this.semaphore = new Semaphore(Race.CARS_TUNNEL_LIMIT);

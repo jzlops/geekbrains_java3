@@ -10,7 +10,7 @@ public class MainClass {
         ExecutorService ex = Executors.newFixedThreadPool(Race.CARS_COUNT);
         ArrayList<Callable<Car>> carsList = new ArrayList<>();
         Car[] cars = new Car[Race.CARS_COUNT];
-        Race race = new Race(new Road(60), new Tunnel(40, (int) Race.CARS_COUNT / 2), new Road(40));
+        Race race = new Race(new Road(60), new Tunnel(40), new Road(40));
 
         System.out.println("ВАЖНОЕ ОБЪЯВЕНИЕ >>> Подготовка!!!");
         for (int i = 0; i < cars.length; i++) {
