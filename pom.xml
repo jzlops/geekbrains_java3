@@ -14,6 +14,7 @@
         <module>term2</module>
         <module>term3</module>
         <module>term4</module>
+        <module>term5</module>
     </modules>
 
     <properties>
