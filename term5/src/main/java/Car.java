@@ -17,7 +17,7 @@ public class Car implements Callable {
     static {
         Car.CAR_NUM = 0;
         Car.WINNER = null;
-        Car.BARRIER = new CyclicBarrier(RaceEnvironment.CARS_COUNT);
+        Car.BARRIER = new CyclicBarrier(Race.CARS_COUNT);
         Car.START = false;
     }
 
