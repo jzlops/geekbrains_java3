@@ -1,6 +1,6 @@
 /**
  * Edit by Tikhonov Sergey
  */
-class raceEnvironment {
+class RaceEnvironment {
     static final int CARS_COUNT = 5;
 }

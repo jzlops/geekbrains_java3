@@ -7,10 +7,10 @@ import java.util.concurrent.*;
 public class MainClass {
 
     public static void main(String[] args) {
-        ExecutorService ex = Executors.newFixedThreadPool(raceEnvironment.CARS_COUNT);
+        ExecutorService ex = Executors.newFixedThreadPool(RaceEnvironment.CARS_COUNT);
         ArrayList<Callable<Car>> carsList = new ArrayList<>();
-        Car[] cars = new Car[raceEnvironment.CARS_COUNT];
-        Race race = new Race(new Road(60), new Tunnel(40, (int) raceEnvironment.CARS_COUNT / 2), new Road(40));
+        Car[] cars = new Car[RaceEnvironment.CARS_COUNT];
+        Race race = new Race(new Road(60), new Tunnel(40, (int) RaceEnvironment.CARS_COUNT / 2), new Road(40));
 
         System.out.println("ВАЖНОЕ ОБЪЯВЕНИЕ >>> Подготовка!!!");
         for (int i = 0; i < cars.length; i++) {
