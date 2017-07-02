@@ -16,6 +16,7 @@
         <module>term4</module>
         <module>term5</module>
         <module>term6</module>
+        <module>interview1</module>
     </modules>
 
     <properties>

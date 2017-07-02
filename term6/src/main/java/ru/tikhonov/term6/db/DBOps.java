@@ -9,9 +9,9 @@ import java.sql.SQLException;
  * Класс с набором методов для негерации базы и таблицы в ней (по ДЗ)
  */
 class DBOps {
-    private static final String CLEAR_PRODUCT_TABLE = "DELETE FROM Students";
-    private static final String FILL_PRODUCT_TABLE = "INSERT INTO Students (Surname, Ball) VALUES (?,?)";
-    private static final String INIT_PRODUCT_TABLE = "CREATE TABLE IF NOT EXISTS Students (" +
+    private static final String CLEAR_STUDENTS_TABLE = "DELETE FROM Students";
+    private static final String FILL_STUDENTS_TABLE = "INSERT INTO Students (Surname, Ball) VALUES (?,?)";
+    private static final String INIT_STUDENTS_TABLE = "CREATE TABLE IF NOT EXISTS Students (" +
             "ID INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, " +
             "Surname TEXT NOT NULL, " +
             "Ball Integer NOT NULL)";
@@ -24,7 +24,7 @@ class DBOps {
     }
 
     void initTable() {
-        try (PreparedStatement ps = this.connection.prepareStatement(INIT_PRODUCT_TABLE)) {
+        try (PreparedStatement ps = this.connection.prepareStatement(INIT_STUDENTS_TABLE)) {
             if (ps.executeUpdate() == 0) {
                 clearTable();
             }
@@ -35,7 +35,7 @@ class DBOps {
     }
 
     private void clearTable() {
-        try (PreparedStatement ps = this.connection.prepareStatement(CLEAR_PRODUCT_TABLE)) {
+        try (PreparedStatement ps = this.connection.prepareStatement(CLEAR_STUDENTS_TABLE)) {
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -43,7 +43,7 @@ class DBOps {
     }
 
     private void fillTable() {
-        try (PreparedStatement ps = this.connection.prepareStatement(FILL_PRODUCT_TABLE)) {
+        try (PreparedStatement ps = this.connection.prepareStatement(FILL_STUDENTS_TABLE)) {
             this.connection.setAutoCommit(false);
             for (int i = 1; i <= 100; i++) {
                 ps.setString(1, "Surname " + i);
