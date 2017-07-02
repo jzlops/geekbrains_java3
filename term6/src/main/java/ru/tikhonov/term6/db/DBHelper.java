@@ -47,6 +47,9 @@ public class DBHelper {
         if ((DBHelper.dbName != null) && (DBHelper.dbPath != null)) {
             String jdbcURI = "jdbc:sqlite:" + DBHelper.dbPath + "//" + DBHelper.dbName;
             try {
+                if (this.connection != null) {
+                    disconnect();
+                }
                 this.connection = DriverManager.getConnection(jdbcURI);
                 return this.connection;
             } catch (SQLException e) {
