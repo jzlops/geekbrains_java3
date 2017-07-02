@@ -24,19 +24,6 @@ public class DBHelper {
         }
     }
 
-    void setDBURI(String dbPath, String dbName) {
-        if (DBHelper.dbPath == null) {
-            DBHelper.dbPath = dbPath;
-        }
-        if (DBHelper.dbName == null) {
-            DBHelper.dbName = dbName;
-        }
-        File dir = new File(DBHelper.dbPath);
-        if (!dir.exists()) {
-            dir.mkdir();
-        }
-    }
-
     public static DBHelper getInstance() {
         if (dbHelper == null) {
             dbHelper = new DBHelper();
@@ -49,7 +36,14 @@ public class DBHelper {
     private DBHelper() {
     }
 
-    public Connection getConnection() {
+    public Connection getConnection(String dbPath, String dbName) {
+        DBHelper.dbPath = dbPath;
+        DBHelper.dbName = dbName;
+        File dir = new File(DBHelper.dbPath);
+        if (!dir.exists()) {
+            dir.mkdir();
+        }
+
         if ((DBHelper.dbName != null) && (DBHelper.dbPath != null)) {
             String jdbcURI = "jdbc:sqlite:" + DBHelper.dbPath + "//" + DBHelper.dbName;
             try {

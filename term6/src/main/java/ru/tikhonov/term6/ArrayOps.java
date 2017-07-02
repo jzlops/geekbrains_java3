@@ -20,7 +20,7 @@ class ArrayOps {
                     return result;
                 }
             }
-            throw new RuntimeException("Element 4 not found");
+            throw new RuntimeException("Element " + CONTROL_VALUE + " not found");
         }
         return result;
     }
@@ -33,12 +33,12 @@ class ArrayOps {
         boolean isV1 = false;
         boolean isV2 = false;
         boolean isVX = false;
-        for (int anArrayA : array) {
-            if (anArrayA == CONTROL_VALUE1) {
+        for (int a : array) {
+            if (a == CONTROL_VALUE1) {
                 isV1 = true;
                 continue;
             }
-            if (anArrayA == CONTROL_VALUE2) {
+            if (a == CONTROL_VALUE2) {
                 isV2 = true;
                 continue;
             }

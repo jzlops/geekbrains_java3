@@ -21,8 +21,7 @@ public class DBHelperTest {
     @BeforeClass
     public static void init() throws SQLException {
         dbHelper = DBHelper.getInstance();
-        dbHelper.setDBURI("C://!Study//#GeekBrains//Java3//Junk", "littleDB.db");
-        connection = dbHelper.getConnection();
+        connection = dbHelper.getConnection("C://!Study//#GeekBrains//Java3//Junk", "littleDB.db");
         connection.setAutoCommit(false);
     }
 

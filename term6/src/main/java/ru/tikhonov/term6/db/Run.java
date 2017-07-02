@@ -11,8 +11,7 @@ import java.sql.SQLException;
 public class Run {
     public static void main(String[] args) throws SQLException {
         DBHelper dbHelper = DBHelper.getInstance();
-        dbHelper.setDBURI(System.getProperty("user.dir")+"//Junk", "littleDB.db");
-        Connection connection = dbHelper.getConnection();
+        Connection connection = dbHelper.getConnection(System.getProperty("user.dir")+"//Junk", "littleDB.db");
 
         DBOps dbOps = new DBOps(connection);
         dbOps.initTable();
