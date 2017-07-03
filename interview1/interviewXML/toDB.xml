@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" ?>
+<JobDir>
+    <Record>
+        <DepCode>dep11</DepCode>
+        <DepJob>job11</DepJob>
+        <Description>Description11</Description>
+    </Record>
+    <Record>
+        <DepCode>dep11</DepCode>
+        <DepJob>job11</DepJob>
+        <Description>Description22</Description>
+    </Record>
+    <Record>
+        <DepCode>dep33</DepCode>
+        <DepJob>job33</DepJob>
+        <Description>Description33</Description>
+    </Record>
+    <Record>
+        <DepCode>dep44</DepCode>
+        <DepJob>job44</DepJob>
+        <Description>Description44</Description>
+    </Record>
+</JobDir>
