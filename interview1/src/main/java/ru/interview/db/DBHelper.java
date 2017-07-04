@@ -26,6 +26,11 @@ public class DBHelper {
         }
     }
 
+    /**
+     * Метод возвращает объет DBHelper в ед. экземпляре
+     *
+     * @return - объект DBHelper
+     */
     public static DBHelper getInstance() {
         if (dbHelper == null) {
             dbHelper = new DBHelper();
@@ -35,14 +40,19 @@ public class DBHelper {
         }
     }
 
+    /**
+     * Приватный конструктор
+     */
     private DBHelper() {
     }
 
+    /**
+     * Метод возвращает объект соединения к БД
+     *
+     * @return объект Connection
+     */
     public Connection getConnection() {
         try {
-//            if (this.connection != null) {
-//                disconnect();
-//            }
             this.connection = DriverManager.getConnection(DATA_BASE_URL);
             return this.connection;
         } catch (SQLException e) {
@@ -51,6 +61,9 @@ public class DBHelper {
         return null;
     }
 
+    /**
+     * Закрыает соединение к БД
+     */
     public void disconnect() {
         try {
             this.connection.close();

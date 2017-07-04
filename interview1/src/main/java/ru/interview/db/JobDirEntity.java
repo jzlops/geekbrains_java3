@@ -1,9 +1,10 @@
 package ru.interview.db;
 
 /**
+ * Класс представляет сущность одной записи в БД JobDir
  * Edit by Tikhonov Sergey
  */
-public class JobDirEnt {
+public class JobDirEntity {
     private String depCode;
     private String depJob;
     private String Description;
@@ -45,7 +46,7 @@ public class JobDirEnt {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        JobDirEnt other = (JobDirEnt) obj;
+        JobDirEntity other = (JobDirEntity) obj;
         return (other.depJob.equals(this.depJob)) && (other.depCode.equals(this.depCode));
 
     }

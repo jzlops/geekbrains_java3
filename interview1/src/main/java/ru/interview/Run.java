@@ -12,7 +12,8 @@ public class Run {
     public static void main(String[] args) {
         DBHelper dbHelper = DBHelper.getInstance();
         XMLOps xmlOps = new XMLOps(dbHelper.getConnection());
-        xmlOps.fromDataBase(new File("c://!Study//#GeekBrains//Java3//interview1//interviewXML/fromDB.xml"));
-        xmlOps.toDataBase(new File("c://!Study//#GeekBrains//Java3//interview1//interviewXML/toDB.xml"));
+        xmlOps.fromDataBaseToXML(new File("c://!Study//#GeekBrains//Java3//interview1//interviewXML/fromDB.xml"));
+        xmlOps.fromXMLToDatabase(new File("c://!Study//#GeekBrains//Java3//interview1//interviewXML/toDB.xml"));
+        dbHelper.disconnect();
     }
 }

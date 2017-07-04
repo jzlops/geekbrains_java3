@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.PropertyResourceBundle;
 
 /**
+ * Класс считывае данные из файла свойств
  * Edit by Tikhonov Sergey
  */
 public class Init {
