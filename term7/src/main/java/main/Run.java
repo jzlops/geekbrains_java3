@@ -13,12 +13,7 @@ public class Run {
     public static void main(String[] args) {
         for (int i = 0; i < 3; i++) {
             Class c = classes[i];
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    Tester.start(c);
-                }
-            }).start();
+            new Thread(() -> Tester.start(c)).start();
         }
     }
 }
