@@ -31,6 +31,8 @@ public class Tester {
             List<Method> beforeSuiteMethods = new LinkedList<>();
             TreeMap<Integer, Method> testMethods = new TreeMap<>();
 
+            Integer priority;
+
             for (Method method : methods) {
                 if (method.getAnnotation(AfterSuite.class) != null) {
                     afterSuiteMethods.add(method);
@@ -48,12 +50,11 @@ public class Tester {
                 }
 
                 if (method.getAnnotation(Test.class) != null) {
-                    Integer i;
-                    i = method.getAnnotation(Test.class).priority();
-                    if ((i > TEST_UPPER_PRIORITY_BARRIER) || (i < TEST_LOWER_PRIORITY_BARRIER)) {
+                    priority = method.getAnnotation(Test.class).priority();
+                    if ((priority > TEST_UPPER_PRIORITY_BARRIER) || (priority < TEST_LOWER_PRIORITY_BARRIER)) {
                         throw new RuntimeException("Incorrect @Test Annotation priority value in Class: " + clazz.getCanonicalName());
                     }
-                    testMethods.put(method.getAnnotation(Test.class).priority(), method);
+                    testMethods.put(priority, method);
                 }
             }
             for (Method method : beforeSuiteMethods) {
